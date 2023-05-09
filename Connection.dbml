@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProyectoPA" Class="ConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-TSVG5SAF;Initial Catalog=ProyectoPA;Integrated Security=True" SettingsObjectName="Proyecto_Final_PA.Properties.Settings" SettingsPropertyName="ProyectoPAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Venta" Member="Venta">
+    <Type Name="Venta">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VendedorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AutoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Venta" Member="Persona" ThisKey="ClienteID" OtherKey="ID" Type="Persona" IsForeignKey="true" />
+      <Association Name="Persona_Venta1" Member="Persona1" ThisKey="VendedorID" OtherKey="ID" Type="Persona" IsForeignKey="true" />
+      <Association Name="Estado_Venta" Member="Estado" ThisKey="EstadoID" OtherKey="ID" Type="Estado" IsForeignKey="true" />
+      <Association Name="Auto_Venta" Member="Auto" ThisKey="AutoID" OtherKey="ID" Type="Auto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Puesto" Member="Puesto">
+    <Type Name="Puesto">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Association Name="Puesto_Persona" Member="Persona" ThisKey="ID" OtherKey="PuestoID" Type="Persona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Persona" Member="Persona">
+    <Type Name="Persona">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PuestoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Venta" Member="Venta" ThisKey="ID" OtherKey="ClienteID" Type="Venta" />
+      <Association Name="Persona_Venta1" Member="Venta1" ThisKey="ID" OtherKey="VendedorID" Type="Venta" />
+      <Association Name="Persona_Auto" Member="Auto" ThisKey="ID" OtherKey="ProveedorID" Type="Auto" />
+      <Association Name="Puesto_Persona" Member="Puesto" ThisKey="PuestoID" OtherKey="ID" Type="Puesto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Marca" Member="Marca">
+    <Type Name="Marca">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Association Name="Marca_Auto" Member="Auto" ThisKey="ID" OtherKey="MarcaID" Type="Auto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estado" Member="Estado">
+    <Type Name="Estado">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Association Name="Estado_Venta" Member="Venta" ThisKey="ID" OtherKey="EstadoID" Type="Venta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Carroceria" Member="Carroceria">
+    <Type Name="Carroceria">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Association Name="Carroceria_Auto" Member="Auto" ThisKey="ID" OtherKey="CarroceriaID" Type="Auto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Auto" Member="Auto">
+    <Type Name="Auto">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Precio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Manual" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProveedorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarcaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarroceriaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Auto_Venta" Member="Venta" ThisKey="ID" OtherKey="AutoID" Type="Venta" />
+      <Association Name="Carroceria_Auto" Member="Carroceria" ThisKey="CarroceriaID" OtherKey="ID" Type="Carroceria" IsForeignKey="true" />
+      <Association Name="Marca_Auto" Member="Marca" ThisKey="MarcaID" OtherKey="ID" Type="Marca" IsForeignKey="true" />
+      <Association Name="Persona_Auto" Member="Persona" ThisKey="ProveedorID" OtherKey="ID" Type="Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

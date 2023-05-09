@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Final_PA.Personas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Proyecto_Final_PA
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_MantenimientoPersona obj_MantenimientoPersona = new frm_MantenimientoPersona();
+            obj_MantenimientoPersona.ShowDialog();
         }
     }
 }
