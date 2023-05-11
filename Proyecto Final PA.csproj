@@ -58,6 +58,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMantenimientoVariosCampos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoVariosCampos.Designer.cs">
+      <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personas\frm_MantenimientoPersona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoVariosCampos.resx">
+      <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personas\frm_MantenimientoPersona.resx">
       <DependentUpon>frm_MantenimientoPersona.cs</DependentUpon>

@@ -23,5 +23,11 @@ namespace Proyecto_Final_PA
             frm_MantenimientoPersona obj_MantenimientoPersona = new frm_MantenimientoPersona();
             obj_MantenimientoPersona.ShowDialog();
         }
+
+        private void toolCamposEspeciales_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoVariosCampos obj_VariosCampos = new frmMantenimientoVariosCampos();
+            obj_VariosCampos.ShowDialog();
+        }
     }
 }
