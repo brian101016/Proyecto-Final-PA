@@ -99,6 +99,9 @@
     <None Include="Connection.dbml.layout">
       <DependentUpon>Connection.dbml</DependentUpon>
     </None>
+    <None Include="ConnectionString.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

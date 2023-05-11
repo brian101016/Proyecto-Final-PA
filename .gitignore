@@ -363,5 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Omitir las conexiones a la base de datos
-/App.config
-App.config
+ConnectionString.config
