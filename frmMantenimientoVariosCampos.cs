@@ -89,21 +89,33 @@ namespace Proyecto_Final_PA
         // Click en los botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            _ = db.ExecuteQuery<Generic>(
-                $"INSERT {currTable}(Nombre) " +
-                $"VALUES ('{txtNombre.Text}')");
-            
-            listar();
+            try {
+                _ = db.ExecuteQuery<Generic>(
+                    $"INSERT {currTable}(Nombre) " +
+                    $"VALUES ('{txtNombre.Text}')");
+
+                listar();
+            } catch (Exception) {
+                MessageBox.Show(
+                    $"Ya existe un registro con el nombre '{txtNombre.Text}'",
+                    "ERROR");
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            _ = db.ExecuteQuery<Generic>(
-                $"UPDATE {currTable} SET " +
-                $"Nombre = '{txtNombre.Text}' " +
-                $"WHERE ID = {currID}");
+            try {
+                _ = db.ExecuteQuery<Generic>(
+                    $"UPDATE {currTable} SET " +
+                    $"Nombre = '{txtNombre.Text}' " +
+                    $"WHERE ID = {currID}");
 
-            listar();
+                listar();
+            } catch (Exception) {
+                MessageBox.Show(
+                    $"Ya existe un registro con el nombre '{txtNombre.Text}'",
+                    "ERROR");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
