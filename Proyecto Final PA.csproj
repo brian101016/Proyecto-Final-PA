@@ -64,6 +64,7 @@
     <Compile Include="frmMantenimientoVariosCampos.Designer.cs">
       <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalScripts.cs" />
     <Compile Include="Personas\frm_MantenimientoPersona.cs">
       <SubType>Form</SubType>
     </Compile>

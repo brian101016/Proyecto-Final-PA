@@ -20,6 +20,7 @@ namespace Proyecto_Final_PA
         }
 
         ConnectionDataContext db = new ConnectionDataContext();
+        Global global = new Global();
 
         // Variables para no estar leyendo a cada rato de los inputs
         private string currTable { get; set; } = "Puesto";
@@ -120,7 +121,13 @@ namespace Proyecto_Final_PA
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PENDIENTE POR HACER");
+            // Ejecutamos scripts de eliminacion globales segun sea el caso
+            if (currTable == "Puesto") global.Eliminar_Puesto(currID, true);
+            else if (currTable == "Marca") global.Eliminar_Marca(currID, true);
+            else if (currTable == "Carroceria") global.Eliminar_Carroceria(currID, true);
+            else global.Eliminar_Estado(currID, true);
+
+            listar();
         }
     }
 }
