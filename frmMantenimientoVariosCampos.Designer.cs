@@ -169,12 +169,11 @@
             // 
             // btnReiniciar
             // 
-            this.btnReiniciar.Enabled = false;
-            this.btnReiniciar.Location = new System.Drawing.Point(203, 428);
+            this.btnReiniciar.Location = new System.Drawing.Point(202, 432);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(115, 50);
             this.btnReiniciar.TabIndex = 11;
-            this.btnReiniciar.Text = "Guardar el cambio";
+            this.btnReiniciar.Text = "Guardar los cambios";
             this.btnReiniciar.UseVisualStyleBackColor = true;
             this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
