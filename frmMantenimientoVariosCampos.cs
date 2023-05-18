@@ -9,11 +9,19 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
+
+
+
+
 
 namespace Proyecto_Final_PA
 {
     public partial class frmMantenimientoVariosCampos : Form
     {
+
+
         public frmMantenimientoVariosCampos()
         {
             InitializeComponent();
@@ -23,9 +31,9 @@ namespace Proyecto_Final_PA
         Global global = new Global();
 
         // Variables para no estar leyendo a cada rato de los inputs
-        private string currTable { get; set; } = "Puesto";
-        private int currID { get; set; } = 0;
-        private string currSearch { get; set; } = "";
+        public string currTable { get; set; } = "Puesto";
+        public int currID { get; set; } = 0;
+        public string currSearch { get; set; } = "";
 
         // Clase generica que representa el modelo de las tablas (dinámico)
         public class Generic { public dynamic ID; public dynamic Nombre; }
@@ -40,7 +48,7 @@ namespace Proyecto_Final_PA
                 string name = item.TableName.Substring(4);
                 // Guardamos en un cbo todas las tablas que no sean...
                 if (!"Persona Venta Auto".Contains(name))
-                    cboCampoEspecial.Items.Add( name );
+                    cboCampoEspecial.Items.Add(name);
             }
 
             // Seleccionamos la primera opción como default
@@ -62,8 +70,10 @@ namespace Proyecto_Final_PA
                 ($"SELECT * FROM {currTable} {fq}");
 
             dgvDatos.DataSource = result.Select(
-                x => new {
-                    x.ID, x.Nombre
+                x => new
+                {
+                    x.ID,
+                    x.Nombre
                 })
                 .OrderBy(x => x.ID).ToList();
         }
@@ -90,13 +100,16 @@ namespace Proyecto_Final_PA
         // Click en los botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 _ = db.ExecuteQuery<Generic>(
                     $"INSERT {currTable}(Nombre) " +
                     $"VALUES ('{txtNombre.Text}')");
 
                 listar();
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show(
                     $"Ya existe un registro con el nombre '{txtNombre.Text}'",
                     "ERROR");
@@ -105,14 +118,17 @@ namespace Proyecto_Final_PA
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 _ = db.ExecuteQuery<Generic>(
                     $"UPDATE {currTable} SET " +
                     $"Nombre = '{txtNombre.Text}' " +
                     $"WHERE ID = {currID}");
 
                 listar();
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show(
                     $"Ya existe un registro con el nombre '{txtNombre.Text}'",
                     "ERROR");
@@ -128,6 +144,37 @@ namespace Proyecto_Final_PA
             else global.Eliminar_Estado(currID, true);
 
             listar();
+        }
+
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            string nombreBaseDeDatos = "ProyectoPA";
+            string rutaArchivoBackup = @"C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup\ProyectoPA.bak";
+
+            string connectionString = "Data Source=DESKTOP-CV6PR5C;Initial Catalog=ProyectoPA;Integrated Security=True;";
+            string backupCommand = $"BACKUP DATABASE {nombreBaseDeDatos} TO DISK='{rutaArchivoBackup}' WITH FORMAT, INIT;";
+
+            if (MessageBox.Show("Deseas guardar los cambios? \n\nTen en cuenta que no podrás deshacer la eliminación de la base de datos.", "AVISO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Copia de seguridad realizada correctamente.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error al realizar la copia de seguridad: {ex.Message}");
+                        }
+                    }
+                }
+            }
         }
     }
 }
