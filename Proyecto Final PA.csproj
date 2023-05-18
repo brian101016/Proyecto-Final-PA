@@ -122,11 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <EmbeddedResource Include="Buscar\frm_Buscar.resx">
       <DependentUpon>frm_Buscar.cs</DependentUpon>
     </EmbeddedResource>
-
     <Compile Include="Ventas\frm_MantenimientoVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +137,6 @@
     <Compile Include="Ventas\frm_PopUpVenta.Designer.cs">
       <DependentUpon>frm_PopUpVenta.cs</DependentUpon>
     </Compile>
-
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,8 +201,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-
-  <ItemGroup />
   <ItemGroup>
     <Folder Include="Auto\" />
     <Folder Include="Carroceria\" />
@@ -213,6 +208,7 @@
     <Folder Include="Marca\" />
     <Folder Include="Puesto\" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\elpoderoso.jpg" />
   </ItemGroup>

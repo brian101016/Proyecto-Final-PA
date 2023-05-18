@@ -43,40 +43,44 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // cboAutoID
             // 
             this.cboAutoID.FormattingEnabled = true;
-            this.cboAutoID.Location = new System.Drawing.Point(135, 277);
+            this.cboAutoID.Location = new System.Drawing.Point(180, 341);
+            this.cboAutoID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboAutoID.Name = "cboAutoID";
-            this.cboAutoID.Size = new System.Drawing.Size(121, 21);
+            this.cboAutoID.Size = new System.Drawing.Size(160, 24);
             this.cboAutoID.TabIndex = 50;
             // 
             // cboEstadoID
             // 
             this.cboEstadoID.FormattingEnabled = true;
-            this.cboEstadoID.Location = new System.Drawing.Point(135, 224);
+            this.cboEstadoID.Location = new System.Drawing.Point(180, 276);
+            this.cboEstadoID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboEstadoID.Name = "cboEstadoID";
-            this.cboEstadoID.Size = new System.Drawing.Size(121, 21);
+            this.cboEstadoID.Size = new System.Drawing.Size(160, 24);
             this.cboEstadoID.TabIndex = 49;
             // 
             // cboVendedorID
             // 
             this.cboVendedorID.FormattingEnabled = true;
-            this.cboVendedorID.Location = new System.Drawing.Point(135, 168);
+            this.cboVendedorID.Location = new System.Drawing.Point(180, 207);
+            this.cboVendedorID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboVendedorID.Name = "cboVendedorID";
-            this.cboVendedorID.Size = new System.Drawing.Size(121, 21);
+            this.cboVendedorID.Size = new System.Drawing.Size(160, 24);
             this.cboVendedorID.TabIndex = 48;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(237, 330);
+            this.btnCancelar.Location = new System.Drawing.Point(316, 406);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 42);
             this.btnCancelar.TabIndex = 47;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@
             // btnAceptar
             // 
             this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.Location = new System.Drawing.Point(43, 330);
+            this.btnAceptar.Location = new System.Drawing.Point(57, 406);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(90, 34);
+            this.btnAceptar.Size = new System.Drawing.Size(120, 42);
             this.btnAceptar.TabIndex = 46;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -95,90 +100,99 @@
             // cboClienteID
             // 
             this.cboClienteID.FormattingEnabled = true;
-            this.cboClienteID.Location = new System.Drawing.Point(135, 117);
+            this.cboClienteID.Location = new System.Drawing.Point(180, 144);
+            this.cboClienteID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboClienteID.Name = "cboClienteID";
-            this.cboClienteID.Size = new System.Drawing.Size(121, 21);
+            this.cboClienteID.Size = new System.Drawing.Size(160, 24);
             this.cboClienteID.TabIndex = 45;
             // 
             // txtIdVenta
             // 
-            this.txtIdVenta.Location = new System.Drawing.Point(135, 24);
+            this.txtIdVenta.Location = new System.Drawing.Point(180, 30);
+            this.txtIdVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdVenta.Name = "txtIdVenta";
             this.txtIdVenta.ReadOnly = true;
-            this.txtIdVenta.Size = new System.Drawing.Size(192, 20);
+            this.txtIdVenta.Size = new System.Drawing.Size(255, 22);
             this.txtIdVenta.TabIndex = 42;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 277);
+            this.label7.Location = new System.Drawing.Point(57, 341);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.Size = new System.Drawing.Size(34, 16);
             this.label7.TabIndex = 41;
             this.label7.Text = "Auto";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(44, 224);
+            this.label6.Location = new System.Drawing.Point(59, 276);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 40;
             this.label6.Text = "Estado";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 176);
+            this.label5.Location = new System.Drawing.Point(59, 217);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(67, 16);
             this.label5.TabIndex = 39;
             this.label5.Text = "Vendedor";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 125);
+            this.label4.Location = new System.Drawing.Point(59, 154);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 38;
             this.label4.Text = "Cliente";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 83);
+            this.label2.Location = new System.Drawing.Point(59, 102);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 36;
             this.label2.Text = "Fecha";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 27);
+            this.label1.Location = new System.Drawing.Point(59, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(20, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "ID";
             // 
             // txtFecha
             // 
             this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFecha.Location = new System.Drawing.Point(135, 75);
+            this.txtFecha.Location = new System.Drawing.Point(180, 92);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(121, 20);
+            this.txtFecha.Size = new System.Drawing.Size(160, 22);
             this.txtFecha.TabIndex = 51;
             // 
-            // errorProvider1
+            // errorProvider
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_PopUpVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 402);
+            this.ClientSize = new System.Drawing.Size(467, 495);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.cboAutoID);
             this.Controls.Add(this.cboEstadoID);
@@ -193,10 +207,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_PopUpVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_PopUpVenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +233,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker txtFecha;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

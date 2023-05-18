@@ -27,8 +27,8 @@ public class Global {
 
     // ########################## ELIMINAR AUTO
     public void Eliminar_Auto(int id, bool success = false) {
-        var consulta = db.Venta.Where(v => v.ID == id);
-        Eliminar_Venta(consulta, success);
+        var consulta = db.Auto.Where(v => v.ID == id);
+        Eliminar_Auto(consulta, success);
     }
 
     public void Eliminar_Auto(IQueryable<Auto> autos, bool success = false)

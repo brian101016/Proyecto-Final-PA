@@ -18,6 +18,12 @@ namespace Proyecto_Final_PA.Ventas
         }
 
         ConnectionDataContext db = new ConnectionDataContext();
+        Global global = new Global();
+
+        private void frm_MantenimientoVenta_Load(object sender, EventArgs e)
+        {
+            listar();
+        }
 
         private void listar()
         {
@@ -31,63 +37,68 @@ namespace Proyecto_Final_PA.Ventas
                     x.EstadoID,
                     x.AutoID
                 }
-                ).ToList();
-        }
-
-        private void frm_MantenimientoVenta_Load(object sender, EventArgs e)
-        {
-            listar();
+            ).ToList();
         }
 
         private void filtrarID(object sender, EventArgs e)
         {
-            dgvVentas.DataSource = db.Venta.Where(x => x.ID.ToString().Equals(txtBusquedaID.Text.ToString())).Select(
-                x => new
-                {
-                    x.ID,
-                    x.Fecha,
-                    x.ClienteID,
-                    x.VendedorID,
-                    x.EstadoID,
-                    x.AutoID
-                }
+            dgvVentas.DataSource = db.Venta.Where(
+                x => x.ID.ToString()
+                .Contains(txtBusquedaID.Text))
+                .Select(
+                    x => new
+                    {
+                        x.ID,
+                        x.Fecha,
+                        x.ClienteID,
+                        x.VendedorID,
+                        x.EstadoID,
+                        x.AutoID
+                    }
                 ).ToList();
         }
-        //Intente hacer un buscador con fecha pero supe muy bien como hacerlo
-        //private void filtrarFecha(object sender, EventArgs e)
-        //{
-        //    dgvVentas.DataSource = db.Venta.Where(x => x.Fecha.Equals(txtBuscadorFecha.Text.ToString())).Select(
-        //        x => new
-        //        {
-        //            x.ID,
-        //            x.Fecha,
-        //            x.ClienteID,
-        //            x.VendedorID,
-        //            x.EstadoID,
-        //            x.AutoID
-        //        }
-        //        ).ToList();
-        //}
 
         private void toolStripNuevo_Click(object sender, EventArgs e)
         {
             frm_PopUpVenta obj_PopUpVenta = new frm_PopUpVenta();
             obj_PopUpVenta.accion = "Nuevo";
             obj_PopUpVenta.ShowDialog();
-            if (obj_PopUpVenta.DialogResult.Equals(DialogResult.OK))
-            {
-                listar();
-            }
+            if (obj_PopUpVenta.DialogResult.Equals(DialogResult.OK)) listar();
         }
 
         private void toolStripEditar_Click(object sender, EventArgs e)
         {
+            if (dgvVentas.CurrentRow == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
+
             frm_PopUpVenta obj_PopUpVenta = new frm_PopUpVenta();
             obj_PopUpVenta.accion = "Editar";
             obj_PopUpVenta.id = dgvVentas.CurrentRow.Cells[0].Value.ToString();
             obj_PopUpVenta.ShowDialog();
-            if (obj_PopUpVenta.DialogResult.Equals(DialogResult.OK))
+            if (obj_PopUpVenta.DialogResult.Equals(DialogResult.OK)) listar();
+        }
+
+        private void toolStripEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvVentas.CurrentRow == null)
             {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
+
+            // Preguntar antes de eliminar
+            if (MessageBox.Show(
+                   "Quieres eliminar el registro?",
+                   "AVISO", MessageBoxButtons.YesNo)
+                == DialogResult.Yes)
+            {
+                int id = int.Parse(dgvVentas.CurrentRow.Cells[0].Value.ToString());
+
+                // Eliminar la venta en cuestión
+                global.Eliminar_Venta(id, true);
                 listar();
             }
         }
@@ -95,34 +106,6 @@ namespace Proyecto_Final_PA.Ventas
         private void toolStripSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void toolStripEliminar_Click(object sender, EventArgs e)
-        {
-            int id = int.Parse(dgvVentas.CurrentRow.Cells[0].Value.ToString());
-
-            // Preguntar antes de eliminar
-            if (MessageBox.Show(
-                   "Quieres eliminar el registro?\n",
-                   "AVISO", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-
-                // Eliminar la venta en cuestión
-                db.Venta.DeleteOnSubmit(
-                db.Venta.Where(p => p.ID == id).FirstOrDefault()
-            );
-
-                try
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("Eliminacion correcta");
-                    listar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error en la eliminacion " + ex);
-                }
-            }
         }
     }
 }

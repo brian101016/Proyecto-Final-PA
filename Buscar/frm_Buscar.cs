@@ -14,7 +14,6 @@ namespace Proyecto_Final_PA.Buscar
     {
         ConnectionDataContext db = new ConnectionDataContext();
 
-
         public frm_Buscar()
         {
             InitializeComponent();
@@ -105,7 +104,7 @@ namespace Proyecto_Final_PA.Buscar
             }
             else if (cboCampoEspecifico.SelectedItem.ToString().Equals("CarroceriaID"))
             {
-                dgvTabla.DataSource = db.Auto.Where(x => x.Carroceria.ToString().Contains(txtFiltrar.Text)).OrderBy(x => x.ID).ToList();
+                dgvTabla.DataSource = db.Auto.Where(x => x.CarroceriaID.ToString().Contains(txtFiltrar.Text)).OrderBy(x => x.ID).ToList();
 
             }
             else if (cboCampoEspecifico.SelectedItem.ToString().Equals("Manual"))
@@ -119,7 +118,7 @@ namespace Proyecto_Final_PA.Buscar
         private void cambiar(object sender, EventArgs e)
         {
             //Muestra las opciones en el combobox de campo especifico
-            string[] personas = new string[] { "Apellido", "Email", "Telefono", "Dirección", "Puesto" };
+            string[] personas = new string[] { "Apellido", "Email", "Telefono", "Dirección", "PuestoID" };
             string[] ventas = new string[] { "ClienteID", "VendedorID", "EstadoID", "AutoID" };
             string[] autos = new string[] { "Precio", "ProveedorID", "MarcaID", "CarroceriaID", "Manual" };
 
@@ -240,7 +239,7 @@ namespace Proyecto_Final_PA.Buscar
 
         private void campoCambiar(object sender, EventArgs e)
         {
-
+            // filtrar(null, null);
         }
     }
 }

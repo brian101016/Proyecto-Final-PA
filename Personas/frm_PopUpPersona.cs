@@ -12,7 +12,6 @@ namespace Proyecto_Final_PA.Personas
 {
     public partial class frm_PopUpPersona : Form
     {
-
         ConnectionDataContext db = new ConnectionDataContext();
 
         public string id { get; set; }
@@ -27,8 +26,9 @@ namespace Proyecto_Final_PA.Personas
         {
             //Combobox
             cboPuesto.DataSource = db.Puesto.ToList();
-            cboPuesto.DisplayMember = "NOMBRE";
+            cboPuesto.DisplayMember = "Nombre";
             cboPuesto.ValueMember = "ID";
+            // cboPuesto.SelectedIndex = 0;
 
             if (accion.Equals("Editar"))
             {
@@ -51,20 +51,13 @@ namespace Proyecto_Final_PA.Personas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string direccion = txtDireccion.Text;
-            string email = txtEmail.Text;
-            string telefono = txtTelefono.Text;
-            int puesto = int.Parse(cboPuesto.SelectedValue.ToString());
-
             // -------------------------------------- VALIDAR DATOS
             var arr = new List<TextBox>{
                 txtNombre,
                 txtApellido,
-                txtDireccion,
                 txtEmail,
                 txtTelefono,
+                txtDireccion,
             };
 
             foreach (var item in arr)
@@ -78,6 +71,20 @@ namespace Proyecto_Final_PA.Personas
                 }
                 else errorProvider.SetError(item, "");
             }
+
+            if (cboPuesto.SelectedIndex == -1)
+            {
+                errorProvider.SetError(cboPuesto, "Valor invalido");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            string direccion = txtDireccion.Text;
+            string email = txtEmail.Text;
+            string telefono = txtTelefono.Text;
+            int puesto = int.Parse(cboPuesto.SelectedValue.ToString());
 
             if (accion.Equals("Nuevo"))
             {
@@ -96,11 +103,11 @@ namespace Proyecto_Final_PA.Personas
                 try
                 {
                     db.SubmitChanges();
-                    MessageBox.Show(":)");
+                    MessageBox.Show("Se ha insertado correctamente");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Trono :( --> " + ex);
+                    MessageBox.Show("Error: " + ex);
                 }
             }
             else
@@ -116,11 +123,11 @@ namespace Proyecto_Final_PA.Personas
                 try
                 {
                     db.SubmitChanges();
-                    MessageBox.Show(":)");
+                    MessageBox.Show("Se ha modificado correctamente");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Trono :( --> " + ex);
+                    MessageBox.Show("Error: " + ex);
                 }
             }
 

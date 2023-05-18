@@ -25,21 +25,20 @@ namespace Proyecto_Final_PA
         private void frm_PopUpAuto_Load(object sender, EventArgs e)
         {
             //Combobox
-            cboManual.DataSource = db.Auto.ToList();
-            cboManual.DisplayMember = "NOMBRE";
-            cboManual.ValueMember = "ID";
-
-            cboProveedorID.DataSource = db.Auto.ToList();
-            cboProveedorID.DisplayMember = "NOMBRE";
+            cboProveedorID.DataSource = db.Persona.Where(p => p.PuestoID == 3).ToList();
+            cboProveedorID.DisplayMember = "Nombre";
             cboProveedorID.ValueMember = "ID";
+            // cboProveedorID.SelectedIndex = 0;
 
             cboMarcaID.DataSource = db.Marca.ToList();
-            cboMarcaID.DisplayMember = "NOMBRE";
+            cboMarcaID.DisplayMember = "Nombre";
             cboMarcaID.ValueMember = "ID";
+            // cboMarcaID.SelectedIndex = 0;
 
             cboCarroceriaID.DataSource = db.Carroceria.ToList();
-            cboCarroceriaID.DisplayMember = "NOMBRE";
+            cboCarroceriaID.DisplayMember = "Nombre";
             cboCarroceriaID.ValueMember = "ID";
+            // cboCarroceriaID.SelectedIndex = 0;
 
             if (accion.Equals("Editar"))
             {
@@ -49,7 +48,7 @@ namespace Proyecto_Final_PA
                 txtIdAuto.Text = obj_auto.ID.ToString();
                 txtNombre.Text = obj_auto.Nombre;
                 txtPrecio.Text = obj_auto.Precio.ToString();
-                cboManual.SelectedValue = obj_auto.Manual;
+                chkManual.Checked = obj_auto.Manual;
                 cboProveedorID.SelectedValue = obj_auto.ProveedorID;
                 cboMarcaID.SelectedValue = obj_auto.MarcaID;
                 cboCarroceriaID.SelectedValue = obj_auto.CarroceriaID;
@@ -62,9 +61,44 @@ namespace Proyecto_Final_PA
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            // -------------------------------------- VALIDAR DATOS
+            if (txtNombre.Text == "")
+            {
+                errorProvider.SetError(txtNombre, "El campo no puede estar vacío");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtNombre, "");
+
+            if (txtPrecio.Value <= 0)
+            {
+                errorProvider.SetError(txtPrecio, "El precio debe ser mayor a 0");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtPrecio, "");
+
+            var arr2 = new List<ComboBox>{
+                cboProveedorID,
+                cboMarcaID,
+                cboCarroceriaID,
+            };
+
+            foreach (var item in arr2)
+            {
+                // Validar vacios
+                if (item.SelectedIndex == -1)
+                {
+                    errorProvider.SetError(item, "Valor invalido");
+                    this.DialogResult = DialogResult.None;
+                    return;
+                }
+                else errorProvider.SetError(item, "");
+            }
+
             string nombre = txtNombre.Text;
-            int precio = int.Parse(txtPrecio.Text);
-            bool manual = bool.Parse(cboManual.SelectedValue.ToString());
+            int precio = (int)txtPrecio.Value;
+            bool manual = chkManual.Checked;
             int proveedor = int.Parse(cboProveedorID.SelectedValue.ToString());
             int marca = int.Parse(cboMarcaID.SelectedValue.ToString());
             int carroceria = int.Parse(cboCarroceriaID.SelectedValue.ToString());
@@ -86,11 +120,11 @@ namespace Proyecto_Final_PA
                 try
                 {
                     db.SubmitChanges();
-                    MessageBox.Show(":)");
+                    MessageBox.Show("Agregado correctamente");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Trono :( --> " + ex);
+                    MessageBox.Show("Error: " + ex);
                 }
             }
             else
@@ -106,11 +140,11 @@ namespace Proyecto_Final_PA
                 try
                 {
                     db.SubmitChanges();
-                    MessageBox.Show(":)");
+                    MessageBox.Show("Modificado correctamente");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Trono :( --> " + ex);
+                    MessageBox.Show("Error: " + ex);
                 }
             }
         }

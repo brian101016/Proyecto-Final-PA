@@ -11,10 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-
-
-
-
 namespace Proyecto_Final_PA
 {
     public partial class frmMantenimientoVariosCampos : Form
@@ -158,7 +154,6 @@ namespace Proyecto_Final_PA
 
             listar();
         }
-
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {

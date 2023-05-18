@@ -44,94 +44,105 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(16, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tabla";
             // 
             // cboTabla
             // 
             this.cboTabla.FormattingEnabled = true;
-            this.cboTabla.Location = new System.Drawing.Point(53, 16);
+            this.cboTabla.Location = new System.Drawing.Point(71, 20);
+            this.cboTabla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboTabla.Name = "cboTabla";
-            this.cboTabla.Size = new System.Drawing.Size(121, 21);
+            this.cboTabla.Size = new System.Drawing.Size(160, 24);
             this.cboTabla.TabIndex = 1;
             this.cboTabla.SelectedIndexChanged += new System.EventHandler(this.cambiar);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(218, 19);
+            this.label2.Location = new System.Drawing.Point(39, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.Size = new System.Drawing.Size(20, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(379, 18);
+            this.label3.Location = new System.Drawing.Point(211, 62);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(547, 19);
+            this.label4.Location = new System.Drawing.Point(415, 63);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Campo Especifico";
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(242, 16);
+            this.txtId.Location = new System.Drawing.Point(71, 60);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(132, 22);
             this.txtId.TabIndex = 5;
             this.txtId.TextChanged += new System.EventHandler(this.filtrarID);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(429, 16);
+            this.txtNombre.Location = new System.Drawing.Point(275, 59);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.Size = new System.Drawing.Size(132, 22);
             this.txtNombre.TabIndex = 6;
             this.txtNombre.TextChanged += new System.EventHandler(this.listarNombre);
             // 
             // cboCampoEspecifico
             // 
             this.cboCampoEspecifico.FormattingEnabled = true;
-            this.cboCampoEspecifico.Location = new System.Drawing.Point(645, 15);
+            this.cboCampoEspecifico.Location = new System.Drawing.Point(540, 60);
+            this.cboCampoEspecifico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCampoEspecifico.Name = "cboCampoEspecifico";
-            this.cboCampoEspecifico.Size = new System.Drawing.Size(151, 21);
+            this.cboCampoEspecifico.Size = new System.Drawing.Size(200, 24);
             this.cboCampoEspecifico.TabIndex = 7;
             this.cboCampoEspecifico.SelectedIndexChanged += new System.EventHandler(this.campoCambiar);
             // 
             // txtFiltrar
             // 
-            this.txtFiltrar.Location = new System.Drawing.Point(645, 61);
+            this.txtFiltrar.Location = new System.Drawing.Point(748, 60);
+            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(151, 20);
+            this.txtFiltrar.Size = new System.Drawing.Size(200, 22);
             this.txtFiltrar.TabIndex = 8;
             this.txtFiltrar.TextChanged += new System.EventHandler(this.filtrar);
             // 
             // dgvTabla
             // 
             this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTabla.Location = new System.Drawing.Point(320, 132);
+            this.dgvTabla.Location = new System.Drawing.Point(13, 92);
+            this.dgvTabla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTabla.Name = "dgvTabla";
-            this.dgvTabla.Size = new System.Drawing.Size(242, 212);
+            this.dgvTabla.RowHeadersWidth = 51;
+            this.dgvTabla.Size = new System.Drawing.Size(1150, 402);
             this.dgvTabla.TabIndex = 9;
             // 
             // frm_Buscar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 412);
+            this.ClientSize = new System.Drawing.Size(1176, 507);
             this.Controls.Add(this.dgvTabla);
             this.Controls.Add(this.txtFiltrar);
             this.Controls.Add(this.cboCampoEspecifico);
@@ -142,6 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboTabla);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_Buscar";
             this.Text = "Buscar";
             this.Load += new System.EventHandler(this.frm_Buscar_Load);

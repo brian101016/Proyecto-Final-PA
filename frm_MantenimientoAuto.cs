@@ -19,10 +19,12 @@ namespace Proyecto_Final_PA
         }
 
         ConnectionDataContext db = new ConnectionDataContext();
-
         Global global = new Global();
 
-        private int currID { get; set; } = 0;
+        private void frm_MantenimientoAuto_Load(object sender, EventArgs e)
+        {
+            listar();
+        }
 
         private void listar()
         {
@@ -38,11 +40,6 @@ namespace Proyecto_Final_PA
                     x.CarroceriaID
                 }
                 ).ToList();
-        }
-
-        private void frm_MantenimientoAuto_Load(object sender, EventArgs e)
-        {
-            listar();
         }
 
         private void filtrar(object sender, EventArgs e)
@@ -66,52 +63,42 @@ namespace Proyecto_Final_PA
             frm_PopUpAuto obj_PopUpAuto = new frm_PopUpAuto();
             obj_PopUpAuto.accion = "Nuevo";
             obj_PopUpAuto.ShowDialog();
-            if (obj_PopUpAuto.DialogResult.Equals(DialogResult.OK))
-            {
-                listar();
-            }
+            if (obj_PopUpAuto.DialogResult.Equals(DialogResult.OK)) listar();
         }
 
         private void toolStripEditar_Click(object sender, EventArgs e)
         {
+            if (dgvAutos.CurrentRow == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
+
             frm_PopUpAuto obj_PopUpAuto = new frm_PopUpAuto();
             obj_PopUpAuto.accion = "Editar";
             obj_PopUpAuto.id = dgvAutos.CurrentRow.Cells[0].Value.ToString();
             obj_PopUpAuto.ShowDialog();
-            if (obj_PopUpAuto.DialogResult.Equals(DialogResult.OK))
-            {
-                listar();
-            }
+            if (obj_PopUpAuto.DialogResult.Equals(DialogResult.OK)) listar();
         }
 
         private void toolStripEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgvAutos.CurrentRow.Cells[0].Value.ToString());
+            if (dgvAutos.CurrentRow == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
 
             // Preguntar antes de eliminar
             if (MessageBox.Show(
                    "Quieres eliminar el registro?\n" +
-                   "Se eliminarán también todos los registros co-dependientes:\n",
+                   "Se eliminarán también todos los registros co-dependientes!",
                    "AVISO", MessageBoxButtons.YesNo ) == DialogResult.Yes)
             {
 
-               global.Eliminar_Puesto(currID, true);
-
-                // Eliminar al auto en cuestión
-                db.Auto.DeleteOnSubmit(
-                db.Auto.Where(p => p.ID == id).FirstOrDefault()
-            );
-
-                try
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("Eliminacion correcta");
-                    listar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error en la eliminacion " + ex);
-                }
+                int id = int.Parse(dgvAutos.CurrentRow.Cells[0].Value.ToString());
+                global.Eliminar_Auto(id, true);
+                listar();
             }
         }
 

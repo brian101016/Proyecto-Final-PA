@@ -7,9 +7,19 @@ namespace Proyecto_Final_PA.Personas
 {
     public partial class frm_MantenimientoPersona : Form
     {
+        public frm_MantenimientoPersona()
+        {
+            InitializeComponent();
+        }
 
         //Intanciamos el objeto que contendra a la base de datos
         ConnectionDataContext db = new ConnectionDataContext();
+        Global global = new Global();
+
+        private void frm_MantenimientoPersona_Load(object sender, EventArgs e)
+        {
+            listar();
+        }
 
         private void listar()
         {
@@ -18,101 +28,29 @@ namespace Proyecto_Final_PA.Personas
                 {
                     x.ID,
                     x.Nombre,
+                    x.Apellido,
+                    x.Email,
                     x.Telefono,
-                    x.Email
+                    x.Direccion,
+                    x.PuestoID,
                 }
-                ).ToList();
-        }
-
-        public frm_MantenimientoPersona()
-        {
-            InitializeComponent();
+            ).ToList();
         }
 
         private void filtrar(object sender, EventArgs e)
         {
-            dgvPersonas.DataSource = db.Persona.Where(x=>x.Nombre.Contains(txtBusqueda.Text)).Select(
+            dgvPersonas.DataSource = db.Persona.Where(x => x.Nombre.Contains(txtBusqueda.Text)).Select(
                 x => new
                 {
                     x.ID,
                     x.Nombre,
+                    x.Apellido,
+                    x.Email,
                     x.Telefono,
-                    x.Email
+                    x.Direccion,
+                    x.PuestoID,
                 }
-                ).ToList();
-        }
-
-        private void frm_MantenimientoPersona_Load(object sender, EventArgs e)
-        {
-            listar();
-        }
-
-        private void toolStripSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void toolStripEliminar_Click(object sender, EventArgs e)
-        {
-            int id = int.Parse(dgvPersonas.CurrentRow.Cells[0].Value.ToString());
-
-            // select id from Auto where ProveedorID = 29
-            var query_autos = db.Auto.Where(auto => auto.ProveedorID == id);
-
-            // select id from Venta where ClienteID = 29 or VendedorID = 29 or AutoID in (select id from Auto where ProveedorID = 29 )
-            var query_ventas = db.Venta.Where(
-                venta => venta.ClienteID == id
-                || venta.VendedorID == id
-                || query_autos.Select(i => i.ID).Contains(venta.AutoID));
-
-            string autosIDs = "";
-            foreach (var item in query_autos) autosIDs += item.ID + "  ";
-                
-            string ventasIDs = "";
-            foreach (var item in query_ventas) ventasIDs += item.ID + "  ";
-
-            // Preguntar antes de eliminar
-            if (MessageBox.Show(
-                    "Quieres eliminar el registro?\n" +
-                    "Se eliminarán también todos los registros co-dependientes:\n" +
-                    $"IDs Autos:  \t{(autosIDs != "" ? autosIDs : "Ninguno")}\n" +
-                    $"IDs Ventas: \t{(ventasIDs != "" ? ventasIDs : "Ninguno")}\n",
-                    "AVISO", MessageBoxButtons.YesNo
-            ) == DialogResult.Yes) {
-
-                // Eliminar las ventas
-                foreach (Venta item in query_ventas)
-                    db.Venta.DeleteOnSubmit(item);
-
-                // Eliminar los autos
-                foreach (Auto item in query_autos)
-                    db.Auto.DeleteOnSubmit(item);
-
-                // Eliminar a la persona en cuestión
-                db.Persona.DeleteOnSubmit(
-                    db.Persona.Where(p => p.ID == id).FirstOrDefault()
-                );
-
-                try {
-                    db.SubmitChanges();
-                    MessageBox.Show("Eliminacion correcta");
-                    listar();
-                } catch (Exception ex) {
-                    MessageBox.Show("Error en la eliminacion " + ex);
-                }
-            }
-        }
-
-        private void toolStripEditar_Click(object sender, EventArgs e)
-        {
-            frm_PopUpPersona obj_PopUpPersona = new frm_PopUpPersona();
-            obj_PopUpPersona.accion = "Editar";
-            obj_PopUpPersona.id =dgvPersonas.CurrentRow.Cells[0].Value.ToString();
-            obj_PopUpPersona.ShowDialog();
-            if (obj_PopUpPersona.DialogResult.Equals(DialogResult.OK))
-            {
-                listar();
-            }
+            ).ToList();
         }
 
         private void toolStripNuevo_Click(object sender, EventArgs e)
@@ -120,10 +58,50 @@ namespace Proyecto_Final_PA.Personas
             frm_PopUpPersona obj_PopUpPersona = new frm_PopUpPersona();
             obj_PopUpPersona.accion = "Nuevo";
             obj_PopUpPersona.ShowDialog();
-            if (obj_PopUpPersona.DialogResult.Equals(DialogResult.OK))
+            if (obj_PopUpPersona.DialogResult == DialogResult.OK) listar();
+        }
+
+        private void toolStripEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvPersonas.CurrentRow == null)
             {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
+
+            frm_PopUpPersona obj_PopUpPersona = new frm_PopUpPersona();
+            obj_PopUpPersona.accion = "Editar";
+            obj_PopUpPersona.id = dgvPersonas.CurrentRow.Cells[0].Value.ToString();
+            obj_PopUpPersona.ShowDialog();
+            if (obj_PopUpPersona.DialogResult == DialogResult.OK) listar();
+        }
+
+        private void toolStripEliminar_Click(object sender, EventArgs e)
+        {
+            if(dgvPersonas.CurrentRow == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningun campo");
+                return;
+            }
+
+            // Preguntar antes de eliminar
+            if (MessageBox.Show(
+                    "Quieres eliminar el registro?\n" +
+                    "Se eliminarán también todos los registros co-dependientes!",
+                    "AVISO", MessageBoxButtons.YesNo
+            ) == DialogResult.Yes)
+            {
+                int id = (int)dgvPersonas.CurrentRow.Cells[0].Value;
+
+                // Eliminar persona
+                global.Eliminar_Persona(id, true);
                 listar();
             }
+        }
+
+        private void toolStripSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
