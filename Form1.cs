@@ -1,4 +1,5 @@
-﻿using Proyecto_Final_PA.Personas;
+﻿using Proyecto_Final_PA.Buscar;
+using Proyecto_Final_PA.Personas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,17 @@ namespace Proyecto_Final_PA
         {
             frmMantenimientoVariosCampos obj_VariosCampos = new frmMantenimientoVariosCampos();
             obj_VariosCampos.ShowDialog();
+        }
+
+        private void autosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Buscar obj_frm_Buscar = new frm_Buscar();
+            obj_frm_Buscar.ShowDialog();
         }
     }
 }
