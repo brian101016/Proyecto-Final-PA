@@ -58,6 +58,27 @@ namespace Proyecto_Final_PA.Personas
             string telefono = txtTelefono.Text;
             int puesto = int.Parse(cboPuesto.SelectedValue.ToString());
 
+            // -------------------------------------- VALIDAR DATOS
+            var arr = new List<TextBox>{
+                txtNombre,
+                txtApellido,
+                txtDireccion,
+                txtEmail,
+                txtTelefono,
+            };
+
+            foreach (var item in arr)
+            {
+                // Validar vacios
+                if (item.Text.Equals(""))
+                {
+                    errorProvider.SetError(item, "El campo no puede estar vacío");
+                    this.DialogResult = DialogResult.None;
+                    return;
+                }
+                else errorProvider.SetError(item, "");
+            }
+
             if (accion.Equals("Nuevo"))
             {
                 Persona obj_persona = new Persona

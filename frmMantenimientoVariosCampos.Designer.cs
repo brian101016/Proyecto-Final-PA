@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoVariosCampos));
+            this.components = new System.ComponentModel.Container();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cboCampoEspecial = new System.Windows.Forms.ComboBox();
@@ -41,7 +42,9 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
@@ -102,7 +105,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(9, 146);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(99, 42);
             this.btnNuevo.TabIndex = 5;
@@ -112,8 +115,8 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(121, 146);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditar.Location = new System.Drawing.Point(115, 146);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(99, 42);
             this.btnEditar.TabIndex = 6;
@@ -123,8 +126,8 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(233, 146);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Location = new System.Drawing.Point(218, 146);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 42);
             this.btnEliminar.TabIndex = 7;
@@ -143,11 +146,12 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Administrar campos\r\nespeciales";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(60, 207);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(258, 20);
             this.txtBuscar.TabIndex = 10;
@@ -156,13 +160,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(9, 210);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Buscar: ";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // btnReiniciar
             // 
@@ -181,6 +188,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
             this.ClientSize = new System.Drawing.Size(343, 494);
             this.Controls.Add(this.btnReiniciar);
+            this.ClientSize = new System.Drawing.Size(326, 422);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -201,6 +209,7 @@
             this.Text = "Mantenimiento de Campos Especiales";
             this.Load += new System.EventHandler(this.frmMantenimientoVariosCampos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +228,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnReiniciar;
     }
 }
