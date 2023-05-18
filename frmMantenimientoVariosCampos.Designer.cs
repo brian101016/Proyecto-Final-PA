@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cboCampoEspecial = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
@@ -159,6 +162,10 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Buscar: ";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmMantenimientoVariosCampos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +188,7 @@
             this.Text = "Mantenimiento de Campos Especiales";
             this.Load += new System.EventHandler(this.frmMantenimientoVariosCampos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +207,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

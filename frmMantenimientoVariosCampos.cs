@@ -90,6 +90,15 @@ namespace Proyecto_Final_PA
         // Click en los botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            // -------------------------------------- VALIDAR DATOS
+            if (txtNombre.Text.Equals(""))
+            {
+                errorProvider.SetError(txtNombre, "El campo no puede estar vacío");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtNombre, "");
+            
             try {
                 _ = db.ExecuteQuery<Generic>(
                     $"INSERT {currTable}(Nombre) " +
@@ -105,6 +114,15 @@ namespace Proyecto_Final_PA
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            // -------------------------------------- VALIDAR DATOS
+            if (txtNombre.Text.Equals(""))
+            {
+                errorProvider.SetError(txtNombre, "El campo no puede estar vacío");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtNombre, "");
+
             try {
                 _ = db.ExecuteQuery<Generic>(
                     $"UPDATE {currTable} SET " +
