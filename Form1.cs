@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ﻿using Proyecto_Final_PA.Buscar;
 using Proyecto_Final_PA.Personas;
+=======
+﻿using Proyecto_Final_PA.Personas;
+using Proyecto_Final_PA.Ventas;
+>>>>>>> 11ef769170af6ebe33d14b1c072e0c11e06b616e
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +38,7 @@ namespace Proyecto_Final_PA
 
         private void autosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             
         }
 
@@ -40,6 +46,16 @@ namespace Proyecto_Final_PA
         {
             frm_Buscar obj_frm_Buscar = new frm_Buscar();
             obj_frm_Buscar.ShowDialog();
+=======
+            frm_MantenimientoAuto obj_MantenimientoAuto = new frm_MantenimientoAuto();
+            obj_MantenimientoAuto.ShowDialog();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_MantenimientoVenta frm_MantenimientoVenta = new frm_MantenimientoVenta();
+            frm_MantenimientoVenta.ShowDialog();
+>>>>>>> 11ef769170af6ebe33d14b1c072e0c11e06b616e
         }
     }
 }

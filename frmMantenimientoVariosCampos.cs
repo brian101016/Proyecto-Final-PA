@@ -20,6 +20,7 @@ namespace Proyecto_Final_PA
         }
 
         ConnectionDataContext db = new ConnectionDataContext();
+        Global global = new Global();
 
         // Variables para no estar leyendo a cada rato de los inputs
         private string currTable { get; set; } = "Puesto";
@@ -89,26 +90,67 @@ namespace Proyecto_Final_PA
         // Click en los botones
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            _ = db.ExecuteQuery<Generic>(
-                $"INSERT {currTable}(Nombre) " +
-                $"VALUES ('{txtNombre.Text}')");
+            // -------------------------------------- VALIDAR DATOS
+            if (txtNombre.Text.Equals(""))
+            {
+                errorProvider.SetError(txtNombre, "El campo no puede estar vacío");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtNombre, "");
             
-            listar();
+            try {
+                _ = db.ExecuteQuery<Generic>(
+                    $"INSERT {currTable}(Nombre) " +
+                    $"VALUES ('{txtNombre.Text}')");
+
+                listar();
+            } catch (Exception) {
+                MessageBox.Show(
+                    $"Ya existe un registro con el nombre '{txtNombre.Text}'",
+                    "ERROR");
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            _ = db.ExecuteQuery<Generic>(
-                $"UPDATE {currTable} SET " +
-                $"Nombre = '{txtNombre.Text}' " +
-                $"WHERE ID = {currID}");
+            // -------------------------------------- VALIDAR DATOS
+            if (txtNombre.Text.Equals(""))
+            {
+                errorProvider.SetError(txtNombre, "El campo no puede estar vacío");
+                this.DialogResult = DialogResult.None;
+                return;
+            }
+            else errorProvider.SetError(txtNombre, "");
 
-            listar();
+            try {
+                _ = db.ExecuteQuery<Generic>(
+                    $"UPDATE {currTable} SET " +
+                    $"Nombre = '{txtNombre.Text}' " +
+                    $"WHERE ID = {currID}");
+
+                listar();
+            } catch (Exception) {
+                MessageBox.Show(
+                    $"Ya existe un registro con el nombre '{txtNombre.Text}'",
+                    "ERROR");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PENDIENTE POR HACER");
+            // Ejecutamos scripts de eliminacion globales segun sea el caso
+            if (currTable == "Puesto") global.Eliminar_Puesto(currID, true);
+            else if (currTable == "Marca") global.Eliminar_Marca(currID, true);
+            else if (currTable == "Carroceria") global.Eliminar_Carroceria(currID, true);
+            else global.Eliminar_Estado(currID, true);
+
+            listar();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
