@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_MantenimientoAuto));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripNuevo = new System.Windows.Forms.ToolStripLabel();
             this.toolStripEditar = new System.Windows.Forms.ToolStripLabel();
@@ -83,16 +84,17 @@
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(75, 59);
+            this.txtBusqueda.Location = new System.Drawing.Point(90, 72);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(194, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(231, 20);
             this.txtBusqueda.TabIndex = 6;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.filtrar);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 62);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(40, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 5;
@@ -112,11 +114,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
             this.ClientSize = new System.Drawing.Size(494, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAutos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frm_MantenimientoAuto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento Auto";

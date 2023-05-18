@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_MantenimientoVenta));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripNuevo = new System.Windows.Forms.ToolStripLabel();
             this.toolStripEditar = new System.Windows.Forms.ToolStripLabel();
@@ -83,16 +84,17 @@
             // 
             // txtBusquedaID
             // 
-            this.txtBusquedaID.Location = new System.Drawing.Point(114, 43);
+            this.txtBusquedaID.Location = new System.Drawing.Point(87, 48);
             this.txtBusquedaID.Name = "txtBusquedaID";
-            this.txtBusquedaID.Size = new System.Drawing.Size(194, 20);
+            this.txtBusquedaID.Size = new System.Drawing.Size(251, 20);
             this.txtBusquedaID.TabIndex = 10;
             this.txtBusquedaID.TextChanged += new System.EventHandler(this.filtrarID);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 46);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(52, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 9;
@@ -101,7 +103,7 @@
             // dgvVentas
             // 
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentas.Location = new System.Drawing.Point(12, 130);
+            this.dgvVentas.Location = new System.Drawing.Point(12, 88);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -112,11 +114,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
+            this.ClientSize = new System.Drawing.Size(490, 438);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtBusquedaID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvVentas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frm_MantenimientoVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento Venta";
