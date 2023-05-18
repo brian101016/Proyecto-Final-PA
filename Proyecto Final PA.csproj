@@ -64,6 +64,18 @@
     <Compile Include="frmMantenimientoVariosCampos.Designer.cs">
       <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_MantenimientoAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MantenimientoAuto.Designer.cs">
+      <DependentUpon>frm_MantenimientoAuto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PopUpAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PopUpAuto.Designer.cs">
+      <DependentUpon>frm_PopUpAuto.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalScripts.cs" />
     <Compile Include="Personas\frm_MantenimientoPersona.cs">
       <SubType>Form</SubType>
@@ -79,11 +91,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\frm_MantenimientoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frm_MantenimientoVenta.Designer.cs">
+      <DependentUpon>frm_MantenimientoVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frm_PopUpVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frm_PopUpVenta.Designer.cs">
+      <DependentUpon>frm_PopUpVenta.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoVariosCampos.resx">
       <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MantenimientoAuto.resx">
+      <DependentUpon>frm_MantenimientoAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PopUpAuto.resx">
+      <DependentUpon>frm_PopUpAuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personas\frm_MantenimientoPersona.resx">
       <DependentUpon>frm_MantenimientoPersona.cs</DependentUpon>
@@ -101,6 +131,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Ventas\frm_MantenimientoVenta.resx">
+      <DependentUpon>frm_MantenimientoVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frm_PopUpVenta.resx">
+      <DependentUpon>frm_PopUpVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connection.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Connection.designer.cs</LastGenOutput>
@@ -134,7 +170,6 @@
     <Folder Include="Estado\" />
     <Folder Include="Marca\" />
     <Folder Include="Puesto\" />
-    <Folder Include="Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\elpoderoso.jpg" />

@@ -1,4 +1,5 @@
 ﻿using Proyecto_Final_PA.Personas;
+using Proyecto_Final_PA.Ventas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,18 @@ namespace Proyecto_Final_PA
         {
             frmMantenimientoVariosCampos obj_VariosCampos = new frmMantenimientoVariosCampos();
             obj_VariosCampos.ShowDialog();
+        }
+
+        private void autosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_MantenimientoAuto obj_MantenimientoAuto = new frm_MantenimientoAuto();
+            obj_MantenimientoAuto.ShowDialog();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_MantenimientoVenta frm_MantenimientoVenta = new frm_MantenimientoVenta();
+            frm_MantenimientoVenta.ShowDialog();
         }
     }
 }
