@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoVariosCampos));
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cboCampoEspecial = new System.Windows.Forms.ComboBox();
@@ -40,14 +41,13 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(9, 242);
+            this.dgvDatos.Location = new System.Drawing.Point(16, 242);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
@@ -61,6 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(9, 83);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -82,6 +83,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(9, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -110,7 +112,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(115, 146);
+            this.btnEditar.Location = new System.Drawing.Point(121, 146);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(99, 42);
@@ -121,7 +123,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(218, 146);
+            this.btnEliminar.Location = new System.Drawing.Point(233, 146);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 42);
@@ -133,6 +135,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(9, 7);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -153,6 +156,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(9, 210);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -162,29 +166,20 @@
             // 
             // btnReiniciar
             // 
-            this.btnReiniciar.Location = new System.Drawing.Point(218, 432);
+            this.btnReiniciar.Location = new System.Drawing.Point(203, 428);
             this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(98, 50);
+            this.btnReiniciar.Size = new System.Drawing.Size(115, 50);
             this.btnReiniciar.TabIndex = 11;
             this.btnReiniciar.Text = "Guardar el cambio";
             this.btnReiniciar.UseVisualStyleBackColor = true;
             this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(316, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(8, 8);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // frmMantenimientoVariosCampos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
             this.ClientSize = new System.Drawing.Size(343, 494);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnReiniciar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label4);
@@ -197,7 +192,10 @@
             this.Controls.Add(this.cboCampoEspecial);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDatos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmMantenimientoVariosCampos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Campos Especiales";
@@ -222,6 +220,5 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReiniciar;
-        private System.Windows.Forms.Button button2;
     }
 }

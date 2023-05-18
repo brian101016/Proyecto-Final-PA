@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_MantenimientoPersona));
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -43,7 +44,7 @@
             // dgvPersonas
             // 
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersonas.Location = new System.Drawing.Point(12, 95);
+            this.dgvPersonas.Location = new System.Drawing.Point(12, 87);
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.ReadOnly = true;
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -53,7 +54,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(69, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 1;
@@ -61,9 +63,9 @@
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(151, 32);
+            this.txtBusqueda.Location = new System.Drawing.Point(119, 50);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(194, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(290, 20);
             this.txtBusqueda.TabIndex = 2;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.filtrar);
             // 
@@ -76,7 +78,7 @@
             this.toolStripSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(497, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(499, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -112,12 +114,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
+            this.ClientSize = new System.Drawing.Size(499, 431);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvPersonas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frm_MantenimientoPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento personas";

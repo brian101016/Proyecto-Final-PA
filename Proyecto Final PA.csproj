@@ -109,9 +109,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoVariosCampos.resx">
       <DependentUpon>frmMantenimientoVariosCampos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Personas\frm_MantenimientoPersona.resx">
       <DependentUpon>frm_MantenimientoPersona.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Personas\frm_PopUpPersona.resx">
       <DependentUpon>frm_PopUpPersona.cs</DependentUpon>
@@ -164,6 +166,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\elpoderoso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoCarro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoOriginalCarro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconooCarro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoProyeccto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,6 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
 
 
@@ -20,8 +19,6 @@ namespace Proyecto_Final_PA
 {
     public partial class frmMantenimientoVariosCampos : Form
     {
-
-
         public frmMantenimientoVariosCampos()
         {
             InitializeComponent();
@@ -31,9 +28,9 @@ namespace Proyecto_Final_PA
         Global global = new Global();
 
         // Variables para no estar leyendo a cada rato de los inputs
-        public string currTable { get; set; } = "Puesto";
-        public int currID { get; set; } = 0;
-        public string currSearch { get; set; } = "";
+        private string currTable { get; set; } = "Puesto";
+        private int currID { get; set; } = 0;
+        private string currSearch { get; set; } = "";
 
         // Clase generica que representa el modelo de las tablas (dinámico)
         public class Generic { public dynamic ID; public dynamic Nombre; }

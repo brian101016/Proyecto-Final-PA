@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolCamposEspeciales = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.reiniciarBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(864, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,36 +67,28 @@
             // personasToolStripMenuItem
             // 
             this.personasToolStripMenuItem.Name = "personasToolStripMenuItem";
-            this.personasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personasToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.personasToolStripMenuItem.Text = "Personas";
             this.personasToolStripMenuItem.Click += new System.EventHandler(this.personasToolStripMenuItem_Click);
             // 
             // autosToolStripMenuItem
             // 
             this.autosToolStripMenuItem.Name = "autosToolStripMenuItem";
-            this.autosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.autosToolStripMenuItem.Text = "Autos";
             // 
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasToolStripMenuItem.Text = "Ventas";
             // 
             // toolCamposEspeciales
             // 
             this.toolCamposEspeciales.Name = "toolCamposEspeciales";
-            this.toolCamposEspeciales.Size = new System.Drawing.Size(180, 22);
+            this.toolCamposEspeciales.Size = new System.Drawing.Size(174, 22);
             this.toolCamposEspeciales.Text = "Campos Especiales";
             this.toolCamposEspeciales.Click += new System.EventHandler(this.toolCamposEspeciales_Click);
-            // 
-            // label1
-            // 
-            this.label1.Image = global::Proyecto_Final_PA.Properties.Resources.elpoderoso;
-            this.label1.Location = new System.Drawing.Point(0, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(800, 426);
-            this.label1.TabIndex = 1;
             // 
             // reiniciarBaseDeDatosToolStripMenuItem
             // 
@@ -104,14 +97,26 @@
             this.reiniciarBaseDeDatosToolStripMenuItem.Text = "Reiniciar la base de datos";
             this.reiniciarBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.reiniciarBaseDeDatosToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.Image = global::Proyecto_Final_PA.Properties.Resources.IconoProyeccto;
+            this.label1.Location = new System.Drawing.Point(220, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(429, 450);
+            this.label1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
+            this.ClientSize = new System.Drawing.Size(864, 513);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Bienvenido al Sistema :)";
             this.menuStrip1.ResumeLayout(false);
