@@ -160,7 +160,7 @@ namespace Proyecto_Final_PA
             string nombreBaseDeDatos = "ProyectoPA";
             string rutaArchivoBackup = @"C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup\ProyectoPA.bak";
 
-            string connectionString = "Data Source=DESKTOP-CV6PR5C;Initial Catalog=ProyectoPA;Integrated Security=True;";
+            string connectionString = Properties.Settings.Default.ProyectoPAConnectionString;
             string backupCommand = $"BACKUP DATABASE {nombreBaseDeDatos} TO DISK='{rutaArchivoBackup}' WITH FORMAT, INIT;";
 
             if (MessageBox.Show("Deseas guardar los cambios? \n\nTen en cuenta que no podrás deshacer la eliminación de la base de datos.", "AVISO", MessageBoxButtons.YesNo) == DialogResult.Yes)
